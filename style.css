@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+:root {
+    --primary-color: #ADBC9F;
+    --secondary-color: #FBFADA;
+    --tertiary-color: #12372A;
+    --quaternary-color: #436850;
+
+
+
+    --main-font: 'Pixelify Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-sec {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--tertiary-color);
+}
+
+.pomodoro-container {
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+
+.pomodoro-main p {
+    font-size: 7em;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+
+.main-btn {
+
+    padding: 15px 50px;
+    border:  2px solid var(--quaternary-color);
+    border-radius: 20px;
+    background: #12372A;
+    font-family: var(--main-font);
+    font-size: 25px;
+    color:  var(--secondary-color);
+    cursor: pointer;
+    transition: all .3s ease;
+    font-weight: 800;
+}
+
+.active {
+    
+    color: var(--tertiary-color);
+   background-color: #fbfada8f;
+ 
+  
+  
+}
+
+.main-btn:hover {
+   color: var(--tertiary-color);
+   background-color: #fbfada8f;
+}
+
+.pomodoro-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+   
+}
+
+.focus {
+    padding: 6px 20px;
+    font-family: var(--main-font);
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #53ecb7;
+    color: var(--tertiary-color);
+}
+
+.pomodoro-menu button {
+    font-family: var(--main-font);
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.breaks {
+    position: relative;
+
+}
+
+.breaks button {
+    padding: 6px 10px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    transition: all .3s ease;
+}
+
+
+
+.break-title {
+    position: absolute;
+    top: -25px;
+    left: 70px;
+  color: var(--primary-color); 
+}
+
