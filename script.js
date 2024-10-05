@@ -11,6 +11,7 @@ const breakOption1 = document.getElementById('break1')
 const breakOption2 = document.getElementById('break2')
 const focus = document.getElementById('focusId')
 const resetBtn = document.getElementById('resetBtn')
+const mainHeader = document.querySelector('.pomodoro-title')
 
 
 // MGA TUNOG
@@ -83,6 +84,7 @@ mainBtn.addEventListener('click', function() {
      break1State = false
      break2State = false
 
+
    
     if (focusState){
 
@@ -96,6 +98,9 @@ mainBtn.addEventListener('click', function() {
             focus.style.backgroundColor = "#53ecb7"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#FBFADA"
+            mainHeader.innerText = "Focus Mode"
+            
+
             resetFocus = true
             resetBreak1 = false
             resetBreak2 = false
@@ -132,6 +137,7 @@ breakOption1.addEventListener('click', function () {
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#53ecb7"
             breakOption2.style.backgroundColor = "#FBFADA"
+            mainHeader.innerText = "Chill Out"
 
             resetFocus = false
             resetBreak1 = true
@@ -165,6 +171,8 @@ breakOption2.addEventListener('click', function () {
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#53ecb7"
+            mainHeader.innerText = "Take a 10 min Vacation"
+
             resetFocus = false
             resetBreak1 = false
             resetBreak2 = true
