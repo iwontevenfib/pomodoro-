@@ -154,4 +154,85 @@
     color: var(--primary-color);
     font-weight: 800;
     font-size: 17px;
+    transition:  .2s ease-in-out ;
 }
+
+.resetbutton:hover {
+    color: var(--highlight);
+} 
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    font-family: var(--main-font);
+    font-size: 15px;
+}
+
+
+/* MEDIA QUERIES */
+@media (max-width:1920px) {
+}
+
+@media (max-width:1680px) {
+    .pomodoro-title {
+        font-size: 62px;
+    }
+}
+
+@media (max-width:1440px) {
+    .pomodoro-title {
+        font-size: 57px;
+    }
+}
+
+@media (max-width:1366px) {
+    .pomodoro-title {
+        font-size: 55px;
+    }
+}
+
+
+@media (max-width:1280px) {
+}
+
+@media (max-width:1024px) {
+}
+
+@media (max-width:768px) {
+    .pomodoro-menu {
+        flex-direction: column-reverse;
+    }
+
+    .pomodoro-main p {
+        font-size: 6em;
+    }
+}
+
+@media (max-width:640px) {
+
+    .main-btn {
+        font-size: 18px;
+    }
+}
+
+
+
+@media (max-width:475px) {
+    .pomodoro-main p {
+        font-size: 5em;
+    }
+}
+
+
+@media (max-width:375px) {
+}
+
+@media (max-width:320px) {
+}
+

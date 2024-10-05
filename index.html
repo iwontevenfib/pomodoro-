@@ -18,7 +18,7 @@
 
     <section class="main-sec">
 
-        <h1 class="pomodoro-title">Focus Mode</h1>
+        <h1 class="pomodoro-title"><span class="auto-type"></span></h1>
 
         <div class="pomodoro-container">
 
@@ -42,7 +42,7 @@
             <div class="pomodoro-main">
                 <p><span id="minutes" class="minutes">25</span> : <span id="seconds" class="seconds">00</span></p>
             </div>
-            
+
             <button id="main-btn" class="main-btn">start</button>
             <button id="resetBtn" class="resetbutton">reset</button>
 
@@ -50,9 +50,32 @@
         </div>
     </section>
 
+    <footer>
+        2024 Pomodororo Made By Q
+    </footer>
 
+
+    <!-- Main Script -->
 
     <script src="script.js"></script>
+
+    <!-- Typewriter epek -->
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+
+        var typed = new Typed(".auto-type", {
+            strings: ["Pomodoro Timer", "Focus Mode"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true,
+
+        })
+
+    </script>
+
+
 </body>
 
 </html>
