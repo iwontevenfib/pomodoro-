@@ -5,7 +5,7 @@
     --secondary-color: #FBFADA;
     --tertiary-color: #12372A;
     --quaternary-color: #436850;
-    
+
     --highlight: #53ecb7;
 
 
@@ -24,7 +24,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: var(--tertiary-color);
+    gap: 5rem;
 }
 
 .pomodoro-container {
@@ -33,24 +35,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+
+
 }
 
 
 .pomodoro-title {
-   position: absolute;
-   top: 6rem;    
-   font-size: 70px;
-   font-weight: 800;
-   color: var(--highlight);
+    font-family: var(--main-font);
+    top: 6rem;
+    font-size: 70px;
+    color: var(--highlight);
+    text-align: center;
+    transition: all .5 ease;
 
 
-   -webkit-text-stroke: 1px #103015; 
-   text-shadow: 
-       1px 1px 0 #000, 
-       -1px -1px 0 #000, 
-       1px -1px 0 #000, 
-       -1px 1px 0 #000; 
+    -webkit-text-stroke: 1px #151a07;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000;
 }
 
 
@@ -59,43 +64,44 @@
     font-size: 7em;
     color: var(--primary-color);
     text-align: center;
+
 }
 
 
 .main-btn {
 
     padding: 15px 50px;
-    border:  2px solid var(--quaternary-color);
+    border: 2px solid var(--quaternary-color);
     border-radius: 20px;
     background: #12372A;
     font-family: var(--main-font);
     font-size: 25px;
-    color:  var(--secondary-color);
+    color: var(--secondary-color);
     cursor: pointer;
     transition: all .3s ease;
     font-weight: 800;
 }
 
 .active {
-    
+
     color: var(--tertiary-color);
-   background-color: #fbfada8f;
- 
-  
-  
+    background-color: #fbfada8f;
+
+
+
 }
 
 .main-btn:hover {
-   color: var(--tertiary-color);
-   background-color: #fbfada8f;
+    color: var(--tertiary-color);
+    background-color: #fbfada8f;
 }
 
 .pomodoro-menu {
     display: flex;
     align-items: center;
     gap: 12px;
-    
-   
+
+
 }
 
 .focus {
@@ -134,13 +140,14 @@
 
 .break-title {
     position: absolute;
+    font-size: 15px;
     top: -25px;
-    left: 70px;
-  color: var(--highlight); 
+    left: 82px;
+    color: var(--highlight);
 }
 
 .resetbutton {
-    border:none;
+    border: none;
     background: none;
     cursor: pointer;
     font-family: var(--main-font);

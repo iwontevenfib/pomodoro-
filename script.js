@@ -42,34 +42,34 @@ let reset;
 // Init
 
 
-mainBtn.addEventListener('click', function() {
+mainBtn.addEventListener('click', function () {
     mainBtn.classList.toggle("active")
 
 
-    if (mainBtn.innerText == 'start'){
+    if (mainBtn.innerText == 'start') {
         startSound.play()
         mainBtn.innerText = "pause"
         condition = true;
         menuState = true;
         isRunning = true;
         timer()
-        
 
-       }else if(mainBtn.innerText == "pause"){
+
+    } else if (mainBtn.innerText == "pause") {
 
         mainBtn.innerText = "resume"
         pause()
 
-       }else if (mainBtn.innerText == "resume"){
+    } else if (mainBtn.innerText == "resume") {
 
         mainBtn.innerText = "pause"
         pauseResume()
-       } else {
+    } else {
 
         resetTimer();
         mainBtn.innerText = "start"
 
-       }
+    }
 }
 )
 
@@ -78,28 +78,28 @@ mainBtn.addEventListener('click', function() {
 
 
 
-    
- focus.addEventListener('click', function () {
+
+focus.addEventListener('click', function () {
     focusState = true
-     break1State = false
-     break2State = false
+    break1State = false
+    break2State = false
 
 
-   
-    if (focusState){
+
+    if (focusState) {
 
         if (menuState) {
             focus.stopPropagation();
             focus.preventDefault();
 
         } else {
-            
-           
+
+
             focus.style.backgroundColor = "#53ecb7"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#FBFADA"
             mainHeader.innerText = "Focus Mode"
-            
+
 
             resetFocus = true
             resetBreak1 = false
@@ -110,30 +110,30 @@ mainBtn.addEventListener('click', function() {
             focus.preventDefault();
 
         }
-        
+
     }
 
-    
+
 })
 
 breakOption1.addEventListener('click', function () {
-     focusState = false
+    focusState = false
     break1State = true
     break2State = false
 
-   
 
 
-    if (break1State){
+
+    if (break1State) {
 
 
-        if (menuState){
+        if (menuState) {
             breakOption1.stopPropagation();
             breakOption1.preventDefault();
-    
-            
-        }else {
-           
+
+
+        } else {
+
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#53ecb7"
             breakOption2.style.backgroundColor = "#FBFADA"
@@ -147,27 +147,27 @@ breakOption1.addEventListener('click', function () {
             breakOption1.stopPropagation();
             breakOption1.preventDefault();
         }
-       
+
     }
-    
+
 })
 
 breakOption2.addEventListener('click', function () {
-      focusState = false
+    focusState = false
     break1State = false
     break2State = true
-   
 
-  
 
-    if (break2State){
 
-        if (menuState){
+
+    if (break2State) {
+
+        if (menuState) {
             breakOption2.stopPropagation();
             breakOption2.preventDefault();
-        }else {
+        } else {
 
-            
+
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#53ecb7"
@@ -180,14 +180,14 @@ breakOption2.addEventListener('click', function () {
             breakOption2.stopPropagation();
             breakOption2.preventDefault();
         }
-       
+
     }
-    
+
 })
 
 //RESET
 
-resetBtn.addEventListener('click', function(){
+resetBtn.addEventListener('click', function () {
 
     resetTimer();
 
@@ -197,89 +197,89 @@ resetBtn.addEventListener('click', function(){
 
 
 // TIMER SETTINGS
- 
+
 setCount = 0;
 
-function timer(){
-  const myTimer = Number.parseInt(minutes.textContent)
+function timer() {
+    const myTimer = Number.parseInt(minutes.textContent)
 
 
-  if (condition){
-    condition = false;
-     secCount = myTimer * 60;
-   myInterval = setInterval(updateSecCount, 1000)
+    if (condition) {
+        condition = false;
+        secCount = myTimer * 60;
+        myInterval = setInterval(updateSecCount, 1000)
 
-   
-  }
+
+    }
 
 }
 
 
 
-function updateSecCount(){
+function updateSecCount() {
     const minutesCount = document.getElementById("minutes");
     const secondsCount = document.getElementById("seconds");
- 
-         secCount --;
- 
-        let mleft = Math.floor(secCount / 60)
-         let sleft = secCount % 60
- 
-         if (sleft < 10 ){
-             secondsCount.textContent = "0" + sleft
-         }else {
-             secondsCount.textContent = sleft;
-         }
- 
-         minutesCount.textContent = `${mleft}`
- 
-         if (mleft == 0 & sleft == 0){
-             clearInterval(myInterval);
-             bellSound.play();
 
-              mainBtn.innerText = "reset"
-       
-         }
-     }
+    secCount--;
+
+    let mleft = Math.floor(secCount / 60)
+    let sleft = secCount % 60
+
+    if (sleft < 10) {
+        secondsCount.textContent = "0" + sleft
+    } else {
+        secondsCount.textContent = sleft;
+    }
+
+    minutesCount.textContent = `${mleft}`
+
+    if (mleft == 0 & sleft == 0) {
+        clearInterval(myInterval);
+        bellSound.play();
+
+        mainBtn.innerText = "reset"
+
+    }
+}
 
 
-     let pauseState;
+let pauseState;
 
-function pause(){
+function pause() {
     clearInterval(myInterval);
     pauseState = true;
 }
 
-function pauseResume(){
+function pauseResume() {
 
-    if (pauseState){
+    if (pauseState) {
 
-     myInterval = setInterval(updateSecCount, 1000)
-      pauseState = false;
-       
+        myInterval = setInterval(updateSecCount, 1000)
+        pauseState = false;
+
     }
 }
 
-function resetTimer(){
+function resetTimer() {
 
 
 
     mainBtn.innerText = 'start';
-   
-    if (resetFocus){
+
+    if (resetFocus) {
         minutes.innerText = 25;
         seconds.innerText = "00";
         clearInterval(myInterval);
-    }else if(resetBreak1){
-         minutes.innerText ="0" + 5;
+    } else if (resetBreak1) {
+        minutes.innerText = "0" + 5;
         seconds.innerText = "00";
         clearInterval(myInterval);
-    }else if (resetBreak2){
-          minutes.innerText = 10;
+    } else if (resetBreak2) {
+        minutes.innerText = 10;
         seconds.innerText = "00";
         clearInterval(myInterval);
     }
-    
+
     menuState = false
 
 }
