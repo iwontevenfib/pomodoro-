@@ -22,90 +22,20 @@ let condition;
 let menuState = false;
 
 // MENU CONDITIONS
-let focusState;
+let focusState = true;
 let break1State;
 let break2State;
 
+
 // Reset condition
+let resetFocus = true;
+let resetBreak1;
+let resetBreak2;
 let reset;
 
 
-resetBtn.addEventListener('click', function(){
-
-    resetTimer();
-
-})
 
 
-// MENU BUTTONS
- focus.addEventListener('click', function () {
-    focusState = true
-     break1State = false
-     break2State = false
-
-    if (menuState) {
-    focus.stopPropagation();
-    focus.preventDefault();
-}
-    if (focusState){
-          resetTimer();
-        focus.style.backgroundColor = "#53ecb7"
-        breakOption1.style.backgroundColor = "#FBFADA"
-        breakOption2.style.backgroundColor = "#FBFADA"
-        focus.stopPropagation();
-        focus.preventDefault();
-    }
-
-    
-    
-})
-
-breakOption1.addEventListener('click', function () {
-     focusState = false
-    break1State = true
-    break2State = false
-
-    if (menuState){
-        breakOption1.stopPropagation();
-        breakOption1.preventDefault();
-    }
-
-
-    if (break1State){
-        resetTimer();
-        focus.style.backgroundColor = "#FBFADA"
-        breakOption1.style.backgroundColor = "#53ecb7"
-        breakOption2.style.backgroundColor = "#FBFADA"
-        breakOption1.stopPropagation();
-        breakOption1.preventDefault();
-    }
-
-    
-})
-
-breakOption2.addEventListener('click', function () {
-      focusState = false
-    break1State = false
-    break2State = true
-   
-
-    if (menuState){
-        breakOption2.stopPropagation();
-        breakOption2.preventDefault();
-    }
-
-  
-
-    if (break2State){
-        resetTimer();
-        focus.style.backgroundColor = "#FBFADA"
-        breakOption1.style.backgroundColor = "#FBFADA"
-        breakOption2.style.backgroundColor = "#53ecb7"
-        breakOption2.stopPropagation();
-        breakOption2.preventDefault();
-    }
-    
-})
 
 
 // Init
@@ -120,22 +50,142 @@ mainBtn.addEventListener('click', function() {
         mainBtn.innerText = "pause"
         condition = true;
         menuState = true;
+        isRunning = true;
         timer()
         
 
        }else if(mainBtn.innerText == "pause"){
 
         mainBtn.innerText = "resume"
-
         pause()
 
        }else if (mainBtn.innerText == "resume"){
 
         mainBtn.innerText = "pause"
         pauseResume()
+       } else {
+
+        resetTimer();
+        mainBtn.innerText = "start"
+
        }
 }
 )
+
+
+// MENU BUTTONS
+
+
+
+    
+ focus.addEventListener('click', function () {
+    focusState = true
+     break1State = false
+     break2State = false
+
+   
+    if (focusState){
+
+        if (menuState) {
+            focus.stopPropagation();
+            focus.preventDefault();
+
+        } else {
+            
+           
+            focus.style.backgroundColor = "#53ecb7"
+            breakOption1.style.backgroundColor = "#FBFADA"
+            breakOption2.style.backgroundColor = "#FBFADA"
+            resetFocus = true
+            resetBreak1 = false
+            resetBreak2 = false
+
+            resetTimer();
+            focus.stopPropagation();
+            focus.preventDefault();
+
+        }
+        
+    }
+
+    
+})
+
+breakOption1.addEventListener('click', function () {
+     focusState = false
+    break1State = true
+    break2State = false
+
+   
+
+
+    if (break1State){
+
+
+        if (menuState){
+            breakOption1.stopPropagation();
+            breakOption1.preventDefault();
+    
+            
+        }else {
+           
+            focus.style.backgroundColor = "#FBFADA"
+            breakOption1.style.backgroundColor = "#53ecb7"
+            breakOption2.style.backgroundColor = "#FBFADA"
+
+            resetFocus = false
+            resetBreak1 = true
+            resetBreak2 = false
+
+            resetTimer();
+            breakOption1.stopPropagation();
+            breakOption1.preventDefault();
+        }
+       
+    }
+    
+})
+
+breakOption2.addEventListener('click', function () {
+      focusState = false
+    break1State = false
+    break2State = true
+   
+
+  
+
+    if (break2State){
+
+        if (menuState){
+            breakOption2.stopPropagation();
+            breakOption2.preventDefault();
+        }else {
+
+            
+            focus.style.backgroundColor = "#FBFADA"
+            breakOption1.style.backgroundColor = "#FBFADA"
+            breakOption2.style.backgroundColor = "#53ecb7"
+            resetFocus = false
+            resetBreak1 = false
+            resetBreak2 = true
+            resetTimer();
+            breakOption2.stopPropagation();
+            breakOption2.preventDefault();
+        }
+       
+    }
+    
+})
+
+//RESET
+
+resetBtn.addEventListener('click', function(){
+
+    resetTimer();
+
+})
+
+
 
 
 // TIMER SETTINGS
@@ -178,6 +228,8 @@ function updateSecCount(){
          if (mleft == 0 & sleft == 0){
              clearInterval(myInterval);
              bellSound.play();
+
+              mainBtn.innerText = "reset"
        
          }
      }
@@ -202,24 +254,25 @@ function pauseResume(){
 
 function resetTimer(){
 
-    menuState = false;
+
 
     mainBtn.innerText = 'start';
    
-    if (focusState){
+    if (resetFocus){
         minutes.innerText = 25;
         seconds.innerText = "00";
         clearInterval(myInterval);
-    }else if(break1State){
+    }else if(resetBreak1){
          minutes.innerText ="0" + 5;
         seconds.innerText = "00";
         clearInterval(myInterval);
-    }else if (break2State){
+    }else if (resetBreak2){
           minutes.innerText = 10;
         seconds.innerText = "00";
         clearInterval(myInterval);
     }
     
+    menuState = false
 
 }
 

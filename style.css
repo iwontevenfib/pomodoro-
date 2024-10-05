@@ -5,6 +5,8 @@
     --secondary-color: #FBFADA;
     --tertiary-color: #12372A;
     --quaternary-color: #436850;
+    
+    --highlight: #53ecb7;
 
 
 
@@ -85,7 +87,7 @@
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #53ecb7;
+    background-color: var(--highlight);
     color: var(--tertiary-color);
 }
 
@@ -95,6 +97,8 @@
     font-size: 20px;
     border-radius: 5px;
 }
+
+
 
 .breaks {
     position: relative;
@@ -115,7 +119,7 @@
     position: absolute;
     top: -25px;
     left: 70px;
-  color: var(--primary-color); 
+  color: var(--highlight); 
 }
 
 .resetbutton {
