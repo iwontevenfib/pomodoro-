@@ -15,8 +15,8 @@ const mainHeader = document.querySelector('.pomodoro-title')
 
 
 // MGA TUNOG
-const bellSound = new Audio('files/mixkit-arcade-score-interface-217.wav')
-const startSound = new Audio('files/mixkit-retro-arcade-racer-start-218.wav')
+const bellSound = new Audio('/files/mixkit-arcade-score-interface-217.wav')
+const startSound = new Audio('/files/mixkit-retro-arcade-racer-start-218.wav')
 
 // TIMER CONDITIOn
 let condition;
