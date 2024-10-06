@@ -173,6 +173,11 @@ footer {
     font-family: var(--main-font);
     font-size: 15px;
 }
+.note {
+    color: #53ecb6b2;
+    text-align: center;
+    padding: 0 1em;
+}
 
 
 /* MEDIA QUERIES */

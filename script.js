@@ -136,7 +136,7 @@ breakOption1.addEventListener('click', function () {
 
 
         } else {
-            
+
             clickSound1.play()
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#53ecb7"
@@ -171,7 +171,7 @@ breakOption2.addEventListener('click', function () {
             breakOption2.preventDefault();
         } else {
 
-            clickSound2.play()   
+            clickSound2.play()
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#53ecb7"
@@ -211,7 +211,7 @@ function timer() {
     if (condition) {
         condition = false;
         secCount = myTimer * 60;
-        myInterval = setInterval(updateSecCount, 10)
+        myInterval = setInterval(updateSecCount, 1000)
 
 
     }
@@ -235,13 +235,23 @@ function updateSecCount() {
         secondsCount.textContent = sleft;
     }
 
-    if (mleft < 10) {
- minutesCount.textContent = `0${mleft}`
-    }else {
- minutesCount.textContent = `${mleft}`
+    if (mleft == 0 & sleft < 10) {
+        seconds.style.color = "red"
+        minutes.style.color = "red"
+
+        if (mleft == 0 & sleft == 0) {
+            seconds.style.color = "#ADBC9F"
+            minutes.style.color = "#ADBC9F"
+        }
     }
 
-   
+    if (mleft < 10) {
+        minutesCount.textContent = `0${mleft}`
+    } else {
+        minutesCount.textContent = `${mleft}`
+    }
+
+
 
     if (mleft == 0 & sleft == 0) {
         clearInterval(myInterval);
