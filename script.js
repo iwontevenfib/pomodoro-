@@ -15,8 +15,11 @@ const mainHeader = document.querySelector('.pomodoro-title')
 
 
 // MGA TUNOG
-const bellSound = new Audio("files/mixkit-arcade-sscore-interface-217.wav")
+const bellSound = new Audio("files/mixkit-arcade-score-interface-217.wav")
 const startSound = new Audio("files/mixkit-retro-arcade-racer-start-218.wav")
+const clickSound = new Audio("files/mixkit-game-click-1114.wav")
+const clickSound1 = new Audio("files/mixkit-game-click-1114.wav")
+const clickSound2 = new Audio("files/mixkit-game-click-1114.wav")
 
 // TIMER CONDITIOn
 let condition;
@@ -94,7 +97,7 @@ focus.addEventListener('click', function () {
 
         } else {
 
-
+            clickSound.play()
             focus.style.backgroundColor = "#53ecb7"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#FBFADA"
@@ -133,7 +136,8 @@ breakOption1.addEventListener('click', function () {
 
 
         } else {
-
+            
+            clickSound1.play()
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#53ecb7"
             breakOption2.style.backgroundColor = "#FBFADA"
@@ -167,7 +171,7 @@ breakOption2.addEventListener('click', function () {
             breakOption2.preventDefault();
         } else {
 
-
+            clickSound2.play()   
             focus.style.backgroundColor = "#FBFADA"
             breakOption1.style.backgroundColor = "#FBFADA"
             breakOption2.style.backgroundColor = "#53ecb7"
@@ -207,7 +211,7 @@ function timer() {
     if (condition) {
         condition = false;
         secCount = myTimer * 60;
-        myInterval = setInterval(updateSecCount, 1000)
+        myInterval = setInterval(updateSecCount, 10)
 
 
     }
@@ -231,7 +235,13 @@ function updateSecCount() {
         secondsCount.textContent = sleft;
     }
 
-    minutesCount.textContent = `${mleft}`
+    if (mleft < 10) {
+ minutesCount.textContent = `0${mleft}`
+    }else {
+ minutesCount.textContent = `${mleft}`
+    }
+
+   
 
     if (mleft == 0 & sleft == 0) {
         clearInterval(myInterval);
