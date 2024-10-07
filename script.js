@@ -17,7 +17,9 @@ const mainHeader = document.querySelector('.pomodoro-title')
 // MGA TUNOG
 const bellSound = new Audio("files/mixkit-arcade-score-interface-217.wav")
 const startSound = new Audio("files/mixkit-retro-arcade-racer-start-218.wav")
-
+const clickSound = new Audio("files/mixkit-game-click-1114.wav")
+const clickSound1 = new Audio("files/mixkit-game-click-1114.wav")
+const clickSound2 = new Audio("files/mixkit-game-click-1114.wav")
 
 // TIMER CONDITIOn
 let condition;
@@ -86,7 +88,8 @@ focus.addEventListener('click', function () {
 
     if (focusState) {
 
-        
+        focusState = false
+
             clickSound.play()
             focus.style.backgroundColor = "#53ecb7"
             breakOption1.style.backgroundColor = "#FBFADA"
@@ -100,6 +103,10 @@ focus.addEventListener('click', function () {
 
             resetTimer();
 
+            focus.disabled = true;
+            breakOption1.disabled = false;
+            breakOption2.disabled = false;
+
     }
 
 
@@ -112,11 +119,8 @@ breakOption1.addEventListener('click', function () {
 
 
 
-
     if (break1State) {
 
-
-    
 
             clickSound1.play()
             focus.style.backgroundColor = "#FBFADA"
@@ -129,8 +133,9 @@ breakOption1.addEventListener('click', function () {
             resetBreak2 = false
 
             resetTimer();
-            breakOption1.stopPropagation();
-            breakOption1.preventDefault();
+            focus.disabled = false;
+            breakOption1.disabled = true;
+            breakOption2.disabled = false;
        
 
     }
@@ -159,8 +164,11 @@ breakOption2.addEventListener('click', function () {
             resetBreak1 = false
             resetBreak2 = true
             resetTimer();
-            breakOption2.stopPropagation();
-            breakOption2.preventDefault();
+
+            focus.disabled = false;
+            breakOption1.disabled = false;
+            breakOption2.disabled = true;
+       
         
 
     }
@@ -196,15 +204,18 @@ function timer() {
 
 
 function updateSecCount() {
+    const minutesCount = document.getElementById("minutes");
+    const secondsCount = document.getElementById("seconds");
+
     secCount--;
 
     let mleft = Math.floor(secCount / 60)
     let sleft = secCount % 60
 
     if (sleft < 10) {
-        seconds.textContent = "0" + sleft
+        secondsCount.textContent = "0" + sleft
     } else {
-        seconds.textContent = sleft;
+        secondsCount.textContent = sleft;
     }
 
     if (mleft == 0 & sleft < 10) {
@@ -218,9 +229,9 @@ function updateSecCount() {
     }
 
     if (mleft < 10) {
-        minutes.textContent = `0${mleft}`
+        minutesCount.textContent = `0${mleft}`
     } else {
-        minutes.textContent = `${mleft}`
+        minutesCount.textContent = `${mleft}`
     }
 
 
