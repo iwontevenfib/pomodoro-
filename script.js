@@ -17,13 +17,10 @@ const mainHeader = document.querySelector('.pomodoro-title')
 // MGA TUNOG
 const bellSound = new Audio("files/mixkit-arcade-score-interface-217.wav")
 const startSound = new Audio("files/mixkit-retro-arcade-racer-start-218.wav")
-const clickSound = new Audio("files/mixkit-game-click-1114.wav")
-const clickSound1 = new Audio("files/mixkit-game-click-1114.wav")
-const clickSound2 = new Audio("files/mixkit-game-click-1114.wav")
+
 
 // TIMER CONDITIOn
 let condition;
-let menuState = false;
 
 // MENU CONDITIONS
 let focusState = true;
@@ -52,9 +49,7 @@ mainBtn.addEventListener('click', function () {
     if (mainBtn.innerText == 'start') {
         startSound.play()
         mainBtn.innerText = "pause"
-        condition = true;
-        menuState = true;
-        isRunning = true;
+        condition = true; 
         timer()
 
 
@@ -91,12 +86,7 @@ focus.addEventListener('click', function () {
 
     if (focusState) {
 
-        if (menuState) {
-            focus.stopPropagation();
-            focus.preventDefault();
-
-        } else {
-
+        
             clickSound.play()
             focus.style.backgroundColor = "#53ecb7"
             breakOption1.style.backgroundColor = "#FBFADA"
@@ -109,10 +99,6 @@ focus.addEventListener('click', function () {
             resetBreak2 = false
 
             resetTimer();
-            focus.stopPropagation();
-            focus.preventDefault();
-
-        }
 
     }
 
@@ -130,12 +116,7 @@ breakOption1.addEventListener('click', function () {
     if (break1State) {
 
 
-        if (menuState) {
-            breakOption1.stopPropagation();
-            breakOption1.preventDefault();
-
-
-        } else {
+    
 
             clickSound1.play()
             focus.style.backgroundColor = "#FBFADA"
@@ -150,7 +131,7 @@ breakOption1.addEventListener('click', function () {
             resetTimer();
             breakOption1.stopPropagation();
             breakOption1.preventDefault();
-        }
+       
 
     }
 
@@ -166,10 +147,7 @@ breakOption2.addEventListener('click', function () {
 
     if (break2State) {
 
-        if (menuState) {
-            breakOption2.stopPropagation();
-            breakOption2.preventDefault();
-        } else {
+    
 
             clickSound2.play()
             focus.style.backgroundColor = "#FBFADA"
@@ -183,7 +161,7 @@ breakOption2.addEventListener('click', function () {
             resetTimer();
             breakOption2.stopPropagation();
             breakOption2.preventDefault();
-        }
+        
 
     }
 
@@ -202,8 +180,6 @@ resetBtn.addEventListener('click', function () {
 
 // TIMER SETTINGS
 
-setCount = 0;
-
 function timer() {
     const myTimer = Number.parseInt(minutes.textContent)
 
@@ -213,7 +189,6 @@ function timer() {
         secCount = myTimer * 60;
         myInterval = setInterval(updateSecCount, 1000)
 
-
     }
 
 }
@@ -221,18 +196,15 @@ function timer() {
 
 
 function updateSecCount() {
-    const minutesCount = document.getElementById("minutes");
-    const secondsCount = document.getElementById("seconds");
-
     secCount--;
 
     let mleft = Math.floor(secCount / 60)
     let sleft = secCount % 60
 
     if (sleft < 10) {
-        secondsCount.textContent = "0" + sleft
+        seconds.textContent = "0" + sleft
     } else {
-        secondsCount.textContent = sleft;
+        seconds.textContent = sleft;
     }
 
     if (mleft == 0 & sleft < 10) {
@@ -246,9 +218,9 @@ function updateSecCount() {
     }
 
     if (mleft < 10) {
-        minutesCount.textContent = `0${mleft}`
+        minutes.textContent = `0${mleft}`
     } else {
-        minutesCount.textContent = `${mleft}`
+        minutes.textContent = `${mleft}`
     }
 
 
