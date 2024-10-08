@@ -78,6 +78,9 @@ mainBtn.addEventListener('click', function () {
 )
 
 
+
+
+
 // MENU BUTTONS
 
 
@@ -91,6 +94,11 @@ focus.addEventListener('click', function () {
     break2State = false
 
  
+if (menuState){
+    focus.stopPropagation();
+    focus.preventDefault();
+}else {
+
 
 
     if (focusState) {
@@ -115,6 +123,7 @@ focus.addEventListener('click', function () {
             breakOption2.disabled = false;
 
     }
+}
 
 
 })
@@ -125,29 +134,36 @@ breakOption1.addEventListener('click', function () {
     break1State = true
     break2State = false
 
-
+if (menuState){
+    breakOption1.stopPropagation();
+    breakOption1.preventDefault();
+}else {
 
     if (break1State) {
 
       
 
-            clickSound1.play()
-            focus.style.backgroundColor = "#FBFADA"
-            breakOption1.style.backgroundColor = "#53ecb7"
-            breakOption2.style.backgroundColor = "#FBFADA"
-            mainHeader.innerText = "Chill Out"
+        clickSound1.play()
+        focus.style.backgroundColor = "#FBFADA"
+        breakOption1.style.backgroundColor = "#53ecb7"
+        breakOption2.style.backgroundColor = "#FBFADA"
+        mainHeader.innerText = "Chill Out"
 
-            resetFocus = false
-            resetBreak1 = true
-            resetBreak2 = false
+        resetFocus = false
+        resetBreak1 = true
+        resetBreak2 = false
 
-            resetTimer();
-            focus.disabled = false;
-            breakOption1.disabled = true;
-            breakOption2.disabled = false;
-       
+        resetTimer();
+        focus.disabled = false;
+        breakOption1.disabled = true;
+        breakOption2.disabled = false;
+   
 
-    }
+}
+
+}
+
+    
 
 })
 
@@ -156,31 +172,39 @@ breakOption2.addEventListener('click', function () {
     break1State = false
     break2State = true
 
+ if (menuState){
+    breakOption2.stopPropagation();
+    breakOption2.preventDefault();
 
+ }else{
 
-
+    
     if (break2State) {
 
     
 
-            clickSound2.play()
-            focus.style.backgroundColor = "#FBFADA"
-            breakOption1.style.backgroundColor = "#FBFADA"
-            breakOption2.style.backgroundColor = "#53ecb7"
-            mainHeader.innerText = "Take a 10 min Vacation"
+        clickSound2.play()
+        focus.style.backgroundColor = "#FBFADA"
+        breakOption1.style.backgroundColor = "#FBFADA"
+        breakOption2.style.backgroundColor = "#53ecb7"
+        mainHeader.innerText = "Take a 10 min Vacation"
 
-            resetFocus = false
-            resetBreak1 = false
-            resetBreak2 = true
-            resetTimer();
+        resetFocus = false
+        resetBreak1 = false
+        resetBreak2 = true
+        resetTimer();
 
-            focus.disabled = false;
-            breakOption1.disabled = false;
-            breakOption2.disabled = true;
-       
-        
+        focus.disabled = false;
+        breakOption1.disabled = false;
+        breakOption2.disabled = true;
+   
+    
 
-    }
+}
+
+ }
+
+
 
 })
 
