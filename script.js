@@ -23,6 +23,7 @@ const clickSound2 = new Audio("files/mixkit-game-click-1114.wav")
 
 // TIMER CONDITIOn
 let condition;
+let menuState;
 
 // MENU CONDITIONS
 let focusState = true;
@@ -52,13 +53,16 @@ mainBtn.addEventListener('click', function () {
         startSound.play()
         mainBtn.innerText = "pause"
         condition = true; 
+        menuState = true;
         timer()
 
 
     } else if (mainBtn.innerText == "pause") {
 
         mainBtn.innerText = "resume"
+        
         pause()
+
 
     } else if (mainBtn.innerText == "resume") {
 
@@ -77,13 +81,16 @@ mainBtn.addEventListener('click', function () {
 // MENU BUTTONS
 
 
+focus.disabled = true;
 
 
 focus.addEventListener('click', function () {
+    
     focusState = true
     break1State = false
     break2State = false
 
+ 
 
 
     if (focusState) {
@@ -113,6 +120,7 @@ focus.addEventListener('click', function () {
 })
 
 breakOption1.addEventListener('click', function () {
+    
     focusState = false
     break1State = true
     break2State = false
@@ -121,6 +129,7 @@ breakOption1.addEventListener('click', function () {
 
     if (break1State) {
 
+      
 
             clickSound1.play()
             focus.style.backgroundColor = "#FBFADA"
@@ -266,7 +275,7 @@ function pauseResume() {
 function resetTimer() {
 
 
-
+    menuState = false;
     mainBtn.innerText = 'start';
 
     if (resetFocus) {
