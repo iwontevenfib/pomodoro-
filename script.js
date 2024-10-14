@@ -292,7 +292,7 @@ function pauseResume() {
 
     if (pauseState) {
 
-        myInterval = setInterval(updateSecCount, 10)
+        myInterval = setInterval(updateSecCount, 1000)
         pauseState = false;
 
     }
