@@ -327,10 +327,17 @@ function resetTimer() {
 
 // NOtifisifisication
 
+function isMobile() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
 
 function notifTimeStart(){
 
-    // FocusNotif
+    if (isMobile()){
+        return;
+    }else {
+
+        // FocusNotif
     if (focusState){
 
 
@@ -341,9 +348,7 @@ function notifTimeStart(){
             })
         }
 
-    }
-
-    if (break1State || break2State){
+    } else if (break1State || break2State){
         
         if (Notification.permission == "granted"){
 
@@ -354,8 +359,11 @@ function notifTimeStart(){
             })
         }
 
+    }
 
     }
+
+    
    
 }
 
