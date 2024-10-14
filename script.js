@@ -340,7 +340,7 @@ function notifTimeStart(){
                 icon: "files/favicon.png"
             })
         }
-0
+
     }
 
     if (break1State || break2State){
@@ -360,6 +360,7 @@ function notifTimeStart(){
 }
 
 function notifTimesUp(){
+
 
     if (Notification.permission == "granted"){
         new Notification("Pomodoro Timer ni Karl", {
