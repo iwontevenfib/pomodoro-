@@ -15,7 +15,7 @@ const mainHeader = document.querySelector('.pomodoro-title')
 
 
 // MGA TUNOG
-const bellSound = new Audio("files/mixkit-arcade-score-interface-217.wav")
+const bellSound = new Audio("files/mixkit-8-bit-lose-2031.wav")
 const startSound = new Audio("files/mixkit-retro-arcade-racer-start-218.wav")
 const clickSound = new Audio("files/mixkit-game-click-1114.wav")
 const clickSound1 = new Audio("files/mixkit-game-click-1114.wav")
@@ -51,6 +51,7 @@ mainBtn.addEventListener('click', function () {
 
     if (mainBtn.innerText == 'start') {
         startSound.play()
+        notifTimeStart()
         mainBtn.innerText = "pause"
         condition = true; 
         menuState = true;
@@ -271,6 +272,7 @@ function updateSecCount() {
 
     if (mleft == 0 & sleft == 0) {
         clearInterval(myInterval);
+        notifPop();
         bellSound.play();
 
         mainBtn.innerText = "reset"
@@ -290,7 +292,7 @@ function pauseResume() {
 
     if (pauseState) {
 
-        myInterval = setInterval(updateSecCount, 1000)
+        myInterval = setInterval(updateSecCount, 10)
         pauseState = false;
 
     }
@@ -323,9 +325,55 @@ function resetTimer() {
 
 
 
+// NOtifisifisication
+
+
+function notifTimeStart(){
+
+    // FocusNotif
+    if (focusState){
+
+
+        if (Notification.permission ==  "granted"){
+            new Notification("Pomodoro Timer ni Karl", {
+                body: "Time to Focus!",
+                icon: "files/favicon.png"
+            })
+        }
+0
+    }
+
+    if (break1State || break2State){
+        
+        if (Notification.permission == "granted"){
+
+            new Notification("Pomodoro Timer ni Karl", {
+                body: "Chill out man!",
+                icon: "files/favicon.png"
+
+            })
+        }
+
+
+    }
+   
+}
+
+function notifTimesUp(){
+
+    if (Notification.permission == "granted"){
+        new Notification("Pomodoro Timer ni Karl", {
+            body: "Time's Up!",
+            icon: "files/favicon.png"
+        })
+    }   
+
+}
 
 
 
-
-
-
+if (Notification == "granted"){
+    console.log("granted")
+}else if (Notification !== "denied"){
+    Notification.requestPermission()
+}
