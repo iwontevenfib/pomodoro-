@@ -3,7 +3,7 @@
 let myInterval;
 
 
-// HTML ELEMENTOS
+// HTML GETELEMENTOS
 const mainBtn = document.getElementById('main-btn')
 const minutes = document.getElementById('minutes')
 const seconds = document.getElementById('seconds')
@@ -13,13 +13,21 @@ const focus = document.getElementById('focusId')
 const resetBtn = document.getElementById('resetBtn')
 const mainHeader = document.querySelector('.pomodoro-title')
 
+const showTimer = document.querySelector(".pomodoro-main")
+const altTitle = document.querySelector(".alt-title");
+
 
 // MGA TUNOG
 const bellSound = new Audio("files/mixkit-8-bit-lose-2031.wav")
 const startSound = new Audio("files/mixkit-retro-arcade-racer-start-218.wav")
-const clickSound = new Audio("files/mixkit-game-click-1114.wav")
-const clickSound1 = new Audio("files/mixkit-game-click-1114.wav")
-const clickSound2 = new Audio("files/mixkit-game-click-1114.wav")
+startSound.volume = .5;
+
+const clickSound = new Audio("files/mixkit-unlock-game-notification-253.wav")
+const clickSound1 = new Audio("files/mixkit-unlock-game-notification-253.wav")
+const clickSound2 = new Audio("files/mixkit-unlock-game-notification-253.wav")
+
+
+
 
 // TIMER CONDITIOn
 let condition;
@@ -85,11 +93,14 @@ mainBtn.addEventListener('click', function () {
 // MENU BUTTONS
 
 
-focus.disabled = true;
+
 
 
 focus.addEventListener('click', function () {
-    
+
+   showTimer.style.display ='block'
+   altTitle.style.display ='none'
+
     focusState = true
     break1State = false
     break2State = false
@@ -103,8 +114,6 @@ if (menuState){
 
 
     if (focusState) {
-
-        focusState = false
 
             clickSound.play()
             focus.style.backgroundColor = "#53ecb7"
@@ -130,10 +139,14 @@ if (menuState){
 })
 
 breakOption1.addEventListener('click', function () {
-    
+
+   showTimer.style.display ='block'
+   altTitle.style.display ='none'
+
     focusState = false
     break1State = true
     break2State = false
+    
 
 if (menuState){
     breakOption1.stopPropagation();
@@ -143,7 +156,7 @@ if (menuState){
     if (break1State) {
 
       
-
+        
         clickSound1.play()
         focus.style.backgroundColor = "#FBFADA"
         breakOption1.style.backgroundColor = "#53ecb7"
@@ -169,6 +182,10 @@ if (menuState){
 })
 
 breakOption2.addEventListener('click', function () {
+
+showTimer.style.display ='block'
+   altTitle.style.display ='none'
+
     focusState = false
     break1State = false
     break2State = true

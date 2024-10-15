@@ -58,12 +58,29 @@
         -1px 1px 0 #000;
 }
 
+.alt-title {
+    color: #fbfadace;
+    margin: 0 0 4rem 0;
+    font-size: 35px;
+}
+
+.pomodoro-main {
+   display: none;
+}
+
+.p-btns {
+    display: flex;
+    flex-direction: column;
+    margin: 0 3.5rem;
+    gap: 25px;
+}
 
 
-.pomodoro-main p {
+.main-timer {
     font-size: 7em;
     color: var(--primary-color);
     text-align: center;
+    
 
 }
 
@@ -80,6 +97,7 @@
     cursor: pointer;
     transition: all .3s ease;
     font-weight: 800;
+    
 }
 
 .active {
@@ -90,6 +108,8 @@
 
 
 }
+
+
 
 .main-btn:hover {
     color: var(--tertiary-color);
@@ -110,7 +130,7 @@
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: var(--highlight);
+    background-color: var(--secondary-color);
     color: var(--tertiary-color);
 }
 
