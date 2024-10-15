@@ -2,15 +2,12 @@
 
 :root {
     --primary-color: #ffffff;
-    --transparent: #af9ff896;
-
     --secondary-color: #cbdbfc;
     --tertiary-color: #201237;
     --quaternary-color: #8f88c9;
 
     --highlight: #987bff;
-
-
+    --transparent: #af9ff896;
 
     --main-font: 'Pixelify Sans', sans-serif;
 }
@@ -28,22 +25,23 @@
     height: 100%;
     z-index: -10;
 
-    background: url(files/bg.png) ;
-    background-position:center;
-   
-    filter: brightness(0.3); 
+    background: url(files/bg.png);
+    background-position: center;
+
+    filter: brightness(0.3);
 }
 
 .main-sec-container {
-width: 100%;
-height: 96vh;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 5rem;
-    
+    gap: 2rem;
+
 }
+
 .pomodoro-container {
     font-family: var(--main-font);
     display: flex;
@@ -75,19 +73,20 @@ height: 96vh;
 
 .alt-title:nth-child(1) {
     color: var(--primary-color);
- 
+
     font-size: 18px;
     text-align: center;
 }
 
-.alt-title:nth-child(2){
+.alt-title:nth-child(2) {
     margin: 0 0 .6rem 0;
     color: var(--transparent);
     font-size: 30px;
 }
 
+
 .pomodoro-main {
-   display: none;
+    display: none;
 }
 
 .p-btns {
@@ -102,7 +101,7 @@ height: 96vh;
     font-size: 7em;
     color: var(--primary-color);
     text-align: center;
-    
+
 
 }
 
@@ -119,23 +118,19 @@ height: 96vh;
     cursor: pointer;
     transition: all .3s ease;
     font-weight: 800;
-    
+
 }
 
 .active {
 
     color: var(--tertiary-color);
-    
-
-
-
 }
 
 
 
 .main-btn:hover {
 
-   background: var(--highlight);
+    background: var(--highlight);
 }
 
 .pomodoro-menu {
@@ -196,22 +191,36 @@ height: 96vh;
     color: var(--primary-color);
     font-weight: 800;
     font-size: 17px;
-    transition:  .2s ease-in-out ;
+    transition: .2s ease-in-out;
 }
 
 .resetbutton:hover {
     color: var(--highlight);
-} 
+}
 
 footer {
-   
 
-    text-align: center;
-    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
     color: var(--primary-color);
     font-family: var(--main-font);
-    font-size: 15px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 800;
+
+    text-shadow: 1px 1px 0 #000;
+    -webkit-text-stroke: 1px #151a07;
+    text-shadow:
+        1px 1px 0 #000,
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000;
+
+
 }
+
 .note {
     color: var(--quaternary-color);
     text-align: center;
@@ -220,8 +229,7 @@ footer {
 
 
 /* MEDIA QUERIES */
-@media (max-width:1920px) {
-}
+@media (max-width:1920px) {}
 
 @media (max-width:1680px) {
     .pomodoro-title {
@@ -242,11 +250,9 @@ footer {
 }
 
 
-@media (max-width:1280px) {
-}
+@media (max-width:1280px) {}
 
-@media (max-width:1024px) {
-}
+@media (max-width:1024px) {}
 
 @media (max-width:768px) {
     .pomodoro-menu {
@@ -274,9 +280,6 @@ footer {
 }
 
 
-@media (max-width:375px) {
-}
+@media (max-width:375px) {}
 
-@media (max-width:320px) {
-}
-
+@media (max-width:320px) {}
