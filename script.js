@@ -116,9 +116,9 @@ if (menuState){
     if (focusState) {
 
             clickSound.play()
-            focus.style.backgroundColor = "#53ecb7"
-            breakOption1.style.backgroundColor = "#FBFADA"
-            breakOption2.style.backgroundColor = "#FBFADA"
+            focus.style.backgroundColor = "#987bff"
+            breakOption1.style.backgroundColor = "#ffffff"
+            breakOption2.style.backgroundColor = "#ffffff"
             mainHeader.innerText = "Focus Mode"
 
 
@@ -158,9 +158,9 @@ if (menuState){
       
         
         clickSound1.play()
-        focus.style.backgroundColor = "#FBFADA"
-        breakOption1.style.backgroundColor = "#53ecb7"
-        breakOption2.style.backgroundColor = "#FBFADA"
+        focus.style.backgroundColor = "#ffffff"
+        breakOption1.style.backgroundColor = "#987bff"
+        breakOption2.style.backgroundColor = "#ffffff"
         mainHeader.innerText = "Chill Out"
 
         resetFocus = false
@@ -202,9 +202,9 @@ showTimer.style.display ='block'
     
 
         clickSound2.play()
-        focus.style.backgroundColor = "#FBFADA"
-        breakOption1.style.backgroundColor = "#FBFADA"
-        breakOption2.style.backgroundColor = "#53ecb7"
+        focus.style.backgroundColor = "#fffff"
+        breakOption1.style.backgroundColor = "#fffff"
+        breakOption2.style.backgroundColor = "#987bff"
         mainHeader.innerText = "Take a 10 min Vacation"
 
         resetFocus = false
