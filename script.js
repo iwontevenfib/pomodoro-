@@ -18,8 +18,8 @@ const altTitle = document.querySelector(".alt-title");
 
 
 // MGA TUNOG
-const bellSound = new Audio("files/mixkit-8-bit-lose-2031.wav")
-const startSound = new Audio("files/mixkit-retro-arcade-racer-start-218.wav")
+const bellSound = new Audio("files/mixkit-retro-arcade-game-over-470.wav")
+const startSound = new Audio("files/mixkit-arcade-bonus-alert-767.wav")
 startSound.volume = .5;
 
 const clickSound = new Audio("files/mixkit-unlock-game-notification-253.wav")
@@ -288,9 +288,10 @@ function updateSecCount() {
 
 
     if (mleft == 0 & sleft == 0) {
+        bellSound.play();
         clearInterval(myInterval);
         notifPop();
-        bellSound.play();
+       
 
         mainBtn.innerText = "reset"
 
