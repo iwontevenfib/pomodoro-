@@ -45,7 +45,7 @@
     font-family: var(--main-font);
     top: 6rem;
     font-size: 70px;
-    color: var(--highlight);
+    color: #c5ff8e;
     text-align: center;
     transition: all .5 ease;
 
@@ -58,11 +58,17 @@
         -1px 1px 0 #000;
 }
 
-.alt-title {
+.alt-title:nth-child(1) {
     color: #fbfadace;
-    margin: 0 0 4rem 0;
-    font-size: 35px;
+ 
+    font-size: 18px;
     text-align: center;
+}
+
+.alt-title:nth-child(2){
+    margin: 0 0 .6rem 0;
+    color: #b4e785a4;
+    font-size: 30px;
 }
 
 .pomodoro-main {
