@@ -7,7 +7,8 @@
     --quaternary-color: #8f88c9;
 
     --highlight: #987bff;
-    --transparent: #af9ff896;
+    --transparent: #af9ff8c5;
+    --transparent1: #ffffff05;
 
     --main-font: 'Pixelify Sans', sans-serif;
 }
@@ -49,7 +50,15 @@ body::before {
     align-items: center;
     gap: 15px;
 
+    border: 3px solid var(--primary-color);
+    padding: 2rem;
+    border-radius: 25px;
+    transition: all .2s ease;
+   
+} 
 
+.pomodoro-container:hover {
+    background-color: var(--transparent1);
 }
 
 
@@ -72,7 +81,6 @@ body::before {
 
 .alt-title:nth-child(1) {
     color: var(--primary-color);
-
     font-size: 18px;
     text-align: center;
 }
@@ -80,8 +88,28 @@ body::before {
 .alt-title:nth-child(2) {
     margin: 0 0 .6rem 0;
     color: var(--transparent);
-    font-size: 30px;
+    font-size: 50px;
+    position: relative;
 }
+
+
+.alt-title:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: center;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: all .5s ease;
+}
+
+.pomodoro-container:hover .alt-title:nth-child(2)::before {
+    transform: scaleX(1);
+   
+}
+
+
 
 
 .pomodoro-main {
@@ -100,7 +128,8 @@ body::before {
     font-size: 7em;
     color: var(--primary-color);
     text-align: center;
-
+    
+    text-shadow: 5px 5px 0 #000;
 
 }
 
@@ -263,6 +292,10 @@ footer p {
 
     .pomodoro-main p {
         font-size: 6em;
+    }
+
+    .pomodoro-container {
+        border: none;
     }
 }
 

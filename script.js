@@ -15,6 +15,7 @@ const mainHeader = document.querySelector('.pomodoro-title')
 
 const showTimer = document.querySelector(".pomodoro-main")
 const altTitle = document.querySelector(".alt-title");
+const timerText = document.querySelector(".main-timer");
 
 
 // MGA TUNOG
@@ -61,7 +62,7 @@ mainBtn.addEventListener('click', function () {
         startSound.play()
         notifTimeStart()
         mainBtn.innerText = "pause"
-        condition = true; 
+        condition = true;
         menuState = true;
         timer()
 
@@ -69,7 +70,7 @@ mainBtn.addEventListener('click', function () {
     } else if (mainBtn.innerText == "pause") {
 
         mainBtn.innerText = "resume"
-        
+
         pause()
 
 
@@ -98,27 +99,27 @@ mainBtn.addEventListener('click', function () {
 
 focus.addEventListener('click', function () {
 
-   showTimer.style.display ='block'
-   altTitle.style.display ='none'
+    showTimer.style.display = 'block'
+    altTitle.style.display = 'none'
 
     focusState = true
     break1State = false
     break2State = false
 
- 
-if (menuState){
-    focus.stopPropagation();
-    focus.preventDefault();
-}else {
+
+    if (menuState) {
+        focus.stopPropagation();
+        focus.preventDefault();
+    } else {
 
 
 
-    if (focusState) {
+        if (focusState) {
 
             clickSound.play()
             focus.style.backgroundColor = "#987bff"
-            breakOption1.style.backgroundColor = "#FBFADA"
-            breakOption2.style.backgroundColor = "#FBFADA"
+            breakOption1.style.backgroundColor = "#ffffff"
+            breakOption2.style.backgroundColor = "#ffffff"
             mainHeader.innerText = "Focus Mode"
 
 
@@ -132,95 +133,95 @@ if (menuState){
             breakOption1.disabled = false;
             breakOption2.disabled = false;
 
+        }
     }
-}
 
 
 })
 
 breakOption1.addEventListener('click', function () {
 
-   showTimer.style.display ='block'
-   altTitle.style.display ='none'
+    showTimer.style.display = 'block'
+    altTitle.style.display = 'none'
 
     focusState = false
     break1State = true
     break2State = false
-    
 
-if (menuState){
-    breakOption1.stopPropagation();
-    breakOption1.preventDefault();
-}else {
 
-    if (break1State) {
+    if (menuState) {
+        breakOption1.stopPropagation();
+        breakOption1.preventDefault();
+    } else {
 
-      
-        
-        clickSound1.play()
-        focus.style.backgroundColor = "#FBFADA"
-        breakOption1.style.backgroundColor = "#987bff"
-        breakOption2.style.backgroundColor = "#FBFADA"
-        mainHeader.innerText = "Chill Out"
+        if (break1State) {
 
-        resetFocus = false
-        resetBreak1 = true
-        resetBreak2 = false
 
-        resetTimer();
-        focus.disabled = false;
-        breakOption1.disabled = true;
-        breakOption2.disabled = false;
-   
 
-}
+            clickSound1.play()
+            focus.style.backgroundColor = "#ffffff"
+            breakOption1.style.backgroundColor = "#987bff"
+            breakOption2.style.backgroundColor = "#ffffff"
+            mainHeader.innerText = "Chill Out"
 
-}
+            resetFocus = false
+            resetBreak1 = true
+            resetBreak2 = false
 
-    
+            resetTimer();
+            focus.disabled = false;
+            breakOption1.disabled = true;
+            breakOption2.disabled = false;
+
+
+        }
+
+    }
+
+
 
 })
 
 breakOption2.addEventListener('click', function () {
 
-showTimer.style.display ='block'
-   altTitle.style.display ='none'
+    showTimer.style.display = 'block'
+    altTitle.style.display = 'none'
 
     focusState = false
     break1State = false
     break2State = true
 
- if (menuState){
-    breakOption2.stopPropagation();
-    breakOption2.preventDefault();
+    if (menuState) {
+        breakOption2.stopPropagation();
+        breakOption2.preventDefault();
 
- }else{
+    } else {
 
-    
-    if (break2State) {
 
-    
+        if (break2State) {
 
-        clickSound2.play()
-        focus.style.backgroundColor = "#FBFADA"
-        breakOption1.style.backgroundColor = "#FBFADA"
-        breakOption2.style.backgroundColor = "#987bff"
-        mainHeader.innerText = "Take a 10 min Vacation"
 
-        resetFocus = false
-        resetBreak1 = false
-        resetBreak2 = true
-        resetTimer();
 
-        focus.disabled = false;
-        breakOption1.disabled = false;
-        breakOption2.disabled = true;
-   
-    
+            clickSound2.play()
+            focus.style.backgroundColor = "#ffffff"
+            breakOption1.style.backgroundColor = "#ffffff"
+            breakOption2.style.backgroundColor = "#987bff"
+            mainHeader.innerText = "Take a 10 min Vacation"
 
-}
+            resetFocus = false
+            resetBreak1 = false
+            resetBreak2 = true
+            resetTimer();
 
- }
+            focus.disabled = false;
+            breakOption1.disabled = false;
+            breakOption2.disabled = true;
+
+
+
+        }
+
+    }
 
 
 
@@ -250,6 +251,7 @@ function timer() {
 
     }
 
+
 }
 
 
@@ -270,12 +272,14 @@ function updateSecCount() {
     }
 
     if (mleft == 0 & sleft < 10) {
-        seconds.style.color = "red"
-        minutes.style.color = "red"
+        seconds.style.color = "#CD5C5C"
+        minutes.style.color = "#CD5C5C"
+        timerText.style.color = "#CD5C5C"
+
 
         if (mleft == 0 & sleft == 0) {
-            seconds.style.color = "#ADBC9F"
-            minutes.style.color = "#ADBC9F"
+            seconds.style.color = "#CD5C5C"
+            minutes.style.color = "#CD5C5C"
         }
     }
 
@@ -291,7 +295,7 @@ function updateSecCount() {
         bellSound.play();
         clearInterval(myInterval);
         notifPop();
-       
+
 
         mainBtn.innerText = "reset"
 
@@ -318,6 +322,9 @@ function pauseResume() {
 
 function resetTimer() {
 
+    timerText.style.color = "#ffffff"
+    seconds.style.color = "#ffffff"
+    minutes.style.color = "#ffffff"
 
     menuState = false;
     mainBtn.innerText = 'start';
@@ -349,58 +356,58 @@ function isMobile() {
     return /Mobi|Android/i.test(navigator.userAgent);
 }
 
-function notifTimeStart(){
+function notifTimeStart() {
 
-    if (isMobile()){
+    if (isMobile()) {
         return;
-    }else {
+    } else {
 
         // FocusNotif
-    if (focusState){
+        if (focusState) {
 
 
-        if (Notification.permission ==  "granted"){
-            new Notification("Pomodoro Timer ni Karl", {
-                body: "Time to Focus!",
-                icon: "files/favicon.png"
-            })
-        }
+            if (Notification.permission == "granted") {
+                new Notification("Pomodoro Timer ni Karl", {
+                    body: "Time to Focus!",
+                    icon: "files/favicon.png"
+                })
+            }
 
-    } else if (break1State || break2State){
-        
-        if (Notification.permission == "granted"){
+        } else if (break1State || break2State) {
 
-            new Notification("Pomodoro Timer ni Karl", {
-                body: "Chill out man!",
-                icon: "files/favicon.png"
+            if (Notification.permission == "granted") {
 
-            })
+                new Notification("Pomodoro Timer ni Karl", {
+                    body: "Chill out man!",
+                    icon: "files/favicon.png"
+
+                })
+            }
+
         }
 
     }
 
-    }
 
-    
-   
+
 }
 
-function notifTimesUp(){
+function notifTimesUp() {
 
 
-    if (Notification.permission == "granted"){
+    if (Notification.permission == "granted") {
         new Notification("Pomodoro Timer ni Karl", {
             body: "Time's Up!",
             icon: "files/favicon.png"
         })
-    }   
+    }
 
 }
 
 
 
-if (Notification == "granted"){
+if (Notification == "granted") {
     console.log("granted")
-}else if (Notification !== "denied"){
+} else if (Notification !== "denied") {
     Notification.requestPermission()
 }
